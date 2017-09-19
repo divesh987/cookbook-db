@@ -7,7 +7,7 @@
 package "mongodb"
 
 service 'mongodb' do 
-	supports status: true, restart: true, reload: true
+	supports status: true, restart: true
 	action [:enable, :start]
 end
 
@@ -18,6 +18,5 @@ end
 
 template '/lib/systemd/system/mongod.service' do 
 	source 'mongod.service.erb'
-	action :create
 end 
 
