@@ -47,23 +47,10 @@ template '/lib/systemd/system/mongod.service' do
 end 
 
 
-execute 'systemctl daemon-reload' do
-    command 'systemctl daemon-reload'
-    action :nothing
-  end
-  execute 'systemctl start mongod' do
-    command 'systemctl start mongod'
-    action :nothing
-  end
-  execute 'systemctl enable mongod' do
-    command 'systemctl enable mongod'
-    action :nothing
-  end
-
-# service 'mongod' do 
-#   supports status: true, restart: true
-#   action [:enable, :start]
-# end
+service 'mongod' do 
+  supports status: true, restart: true
+  action [:enable, :start]
+end
 
 
 
