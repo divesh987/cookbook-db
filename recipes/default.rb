@@ -35,6 +35,8 @@ apt_repository 'mongodb-org' do
   key "EA312927"
 end
   
+  package 'mongodb'
+  
 template '/etc/mongod.conf' do 
   source 'mongod.conf.erb'
 end 
